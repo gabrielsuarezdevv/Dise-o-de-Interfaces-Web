@@ -1,0 +1,132 @@
+body, html {
+    margin: 0; /* Eliminar márgenes por defecto */
+    padding: 0; /* Eliminar relleno por defecto */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    overflow: hidden; /* Evitar barras de desplazamiento */
+    font-family: sans-serif; /* Fuente por defecto */
+}
+
+.video-container { 
+    position: relative; /* Contenedor relativo para el video y la superposición */
+    width: 100%; /* Ancho completo */
+    height: 100vh; } /* Altura completa de la ventana */
+
+video { 
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    object-fit: cover; /* Asegura que el video cubra todo el contenedor */ 
+}
+
+.overlay {
+    position: absolute; /* Posición absoluta */
+    top: 0; /* Posición superior */
+    left: 0; /* Posición izquierda */
+    width: 100%; /* Cubrir todo el contenedor */
+    height: 100%; /* Cubrir todo el contenedor */
+    background: rgba(0, 0, 0, 0.7); /* Capa oscura sobre el video */
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Alinear elementos en columna */
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar contenido */
+    z-index: 10; /* Asegura que esté sobre el video */
+}
+
+.main-card {
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    padding: 30px; /* Espaciado interno */
+    border-radius: 15px; /* Bordes redondeados */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    text-align: center; /* Centrar el contenido */
+    width: 400px; /* Ancho fijo */
+}
+
+.server-logo { 
+    max-width: 150px; /* Tamaño máximo del logo */
+    margin-bottom: 15px; /* Espacio inferior */
+}
+
+.song-info h3 { 
+    margin: 5px 0; /* Espacio superior e inferior */
+    color: white; /* Color blanco para el título */
+    font-size: 1.4rem; /* Tamaño más grande para el título */
+}
+
+.song-info h6 { 
+    margin: 0; /* Eliminar margen superior e inferior */
+    color: #aaa; /* Color más claro para el artista */
+    font-size: 0.8rem; /* Tamaño más pequeño para el artista */ 
+}
+
+.progress-wrapper { 
+    margin: 20px 0; /* Espacio alrededor de la barra de progreso */
+} 
+
+.progressbar {
+    width: 100%; /* Ancho completo */
+    height: 8px; /* Altura personalizada */
+    appearance: none; /* Eliminar estilo por defecto */
+    -webkit-appearance: none; /* Eliminar estilo por defecto en WebKit */
+    border-radius: 10px; /* Bordes redondeados */
+}
+.progressbar::-webkit-progress-bar { 
+    background: rgba(255,255,255,0.1); /* Fondo personalizado */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.progressbar::-webkit-progress-value { 
+    background: #5865F2; /* Color personalizado */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 15px #5865F2; /* Efecto de brillo */
+}
+
+.button-group { 
+    display: flex; /* Usar flexbox */
+    justify-content: center; /* Centrar los botones */
+    gap: 10px; /* Espacio entre botones */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+button {
+    background: rgba(255,255,255,0.1); /* Fondo semitransparente */
+    border: none; /* Sin borde */
+    color: white;/* Color del icono */
+    width: 45px; /* Tamaño uniforme */
+    height: 45px; /* Tamaño uniforme */
+    border-radius: 50%; /* Botones redondos */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    transition: 0.3s; /* Efecto de transición suave */
+    display: flex; /* Usar flexbox para centrar el icono */
+    align-items: center; /* Centrar el icono verticalmente */
+    justify-content: center; /* Centrar el icono */
+}
+
+button:hover { 
+    background: #5865F2; /* Efecto al pasar el ratón */
+} 
+
+/* AJUSTE DE ICONOS SOCIALES */
+.social-items {
+    display: flex; /* Mostrar los iconos en línea */
+    justify-content: center; /* Centrar los iconos horizontalmente */
+    gap: 20px; /* Espacio entre los iconos */
+    margin-top: 25px; /* Espacio superior */
+}
+.social-items img {
+    width: 40px;  /* Todos los iconos tienen el mismo ancho */
+    height: 40px; /* Todos los iconos tienen el mismo alto */
+    object-fit: contain; /* Evita que se deformen */
+    transition: 0.3s; /* Efecto de transición suave */
+}
+.social-items img:hover { 
+    transform: scale(1.1); /* Efecto al pasar el ratón */
+} 
+
+.loading-text {
+    position: absolute; /* Posición absoluta para situarlo en la esquina */
+    bottom: 30px; /* Separación desde la parte inferior */ 
+    right: 40px; /* Separación desde la parte derecha */
+    color: white; /* Color del texto */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    font-size: 0.8rem; /* Tamaño de la fuente */
+}

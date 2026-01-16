@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaz Multimedia Interactiva</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="video-container">
+    <video src="assets/video.mp4" autoplay muted loop></video>
+
+    <div class="overlay">
+      <div class="main-card">
+        <img src="assets/logo.png" alt="Server Logo" class="server-logo">
+
+        <div class="song-info">
+          <h3 class="titulo">Cargando...</h3>
+          <h6 class="subtitulo">Artista</h6>
+        </div>
+
+        <audio src="" autoplay></audio>
+        
+        <div class="progress-wrapper">
+            <progress class="progressbar" value="0" max="100"></progress>
+        </div>
+
+        <div class="button-group">
+          <button id="btnPrev"><i class="fas fa-step-backward"></i></button>
+          <button id="btnPlay"><i class="fas fa-play"></i></button>
+          <button id="btnNext"><i class="fas fa-step-forward"></i></button>
+        </div>
+
+        <div class="button-group volume-controls">
+          <button id="btnVolDown"><i class="fas fa-volume-down"></i></button>
+          <button id="btnMute"><i class="fas fa-volume-mute"></i></button>
+          <button id="btnVolUp"><i class="fas fa-volume-up"></i></button>
+        </div>
+
+        <div class="social-items">
+          <a href="https://discord.gg/tzUXkqRH" ><img src="assets/discord.png" alt="Discord"></a>
+          <a href="https://www.youtube.com/@KaserPac" ><img src="assets/youtube.png" alt="Youtube"></a>
+          <a href="https://www.paypal.com/es/home" ><img src="assets/donate.png" alt="Donations"></a>
+        </div>
+      </div>
+
+      <div class="loading-text">JOINING SERVER...</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
