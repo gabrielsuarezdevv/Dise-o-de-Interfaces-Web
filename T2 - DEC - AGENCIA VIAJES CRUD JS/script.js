@@ -12,20 +12,21 @@ class Cliente {
 }
 
 class Viaje {
-    constructor(codigo, destino, precio) {
+    constructor(codigo, destino, precio, tipo) {
         this.codigo = codigo;
         this.destino = destino;
         this.precio = precio;
+        this.tipo = tipo;
     }
 
     getInfo() {
-        return `Código: ${this.codigo}, Destino: ${this.destino}, Precio: ${this.precio}`;
+        return `Código: ${this.codigo}, Destino: ${this.destino}, Precio: ${this.precio}, Tipo: ${this.tipo}`;
     }
 }
 
 class Vuelo extends Viaje {
-    constructor(codigo, destino, precio, aerolinea, duracion) {
-        super(codigo, destino, precio);
+    constructor(codigo, destino, precio, tipo, aerolinea, duracion) {
+        super(codigo, destino, precio, tipo);
         this.aerolinea = aerolinea;
         this.duracion = duracion;
     }
@@ -36,8 +37,8 @@ class Vuelo extends Viaje {
 }
 
 class Hotel extends Viaje {
-    constructor(codigo, destino, precio, estrellas, tipoHabitacion) {
-        super(codigo, destino, precio);
+    constructor(codigo, destino, precio, tipo, estrellas, tipoHabitacion) {
+        super(codigo, destino, precio, tipo);
         this.estrellas = estrellas;
         this.tipoHabitacion = tipoHabitacion;
     }
@@ -48,8 +49,8 @@ class Hotel extends Viaje {
 }
 
 class Paquete extends Viaje {
-    constructor(codigo, destino, precio, vuelo, hotel) {
-        super(codigo, destino, precio);
+    constructor(codigo, destino, precio, tipo, vuelo, hotel) {
+        super(codigo, destino, precio, tipo);
         this.vuelo = vuelo;
         this.hotel = hotel;
     }
@@ -70,18 +71,68 @@ class Reserva {
     }
 }
 
+arrClientes = [];
 
-// Ejemplos de uso
-const cliente1 = new Cliente("Ana", "Pérez", "ana.perez@gmail.com", "123456789");
-const vuelo1 = new Vuelo("V001", "París", 200, "Air France", 2.5);
-const hotel1 = new Hotel("H001", "París", 100, 4, "Doble");
-const paquete1 = new Paquete("P001", "París", 280, vuelo1, hotel1);
+function añadirCliente() {
+    let cliente = new Cliente(document.getElementById("txNombre").value, document.getElementById("txApellidos").value, document.getElementById("txEmail").value, document.getElementById("phoneCliente").value);
+    arrClientes.push(cliente);
+    console.log(arrClientes);
+    renderizarTablaClientes();
+}
 
-// Crear una reserva
-const reserva1 = new Reserva(cliente1, paquete1);
+function renderizarTablaClientes() {
 
-// Mostrar el resumen de todos
-console.log(cliente1.getResumen());
-console.log(vuelo1.getInfo());
-console.log(paquete1.getInfo());
-console.log(reserva1.getResumen());
+    // Borramos la tabla
+    const list = document.getElementById("tablaClientes");
+
+    while (list.hasChildNodes()) {
+        list.removeChild(list.firstChild);
+    }
+
+    // Pintamos de nuevo la tabla
+    arrClientes.forEach(cliente => {
+        document.getElementById("tablaClientes").innerHTML +=
+            `<tr>
+              <td scope="row">${cliente.nombre}</td>
+              <td>${cliente.apellidos}</td>
+              <td>${cliente.email}</td>
+              <td>${cliente.phoneCliente}</td>
+              <td></td>
+            </tr>`
+    });
+}
+
+arrViajes = []
+
+function añadirViaje(){
+    let viaje = new Viaje(document.getElementById("txCodigo").value, document.getElementById("txDestino").value, document.getElementById("txPrecio").value, document.getElementById("selTipoViaje").value);
+    arrViajes.push(viaje);
+    console.log(arrViajes);
+    renderizarTablaViajes();
+}
+
+function renderizarTablaViajes() {
+
+    // Borramos la tabla
+    const list = document.getElementById("tablaViajes");
+
+    while (list.hasChildNodes()) {
+        list.removeChild(list.firstChild);
+    }
+
+    // Pintamos de nuevo la tabla
+    arrViajes.forEach(viaje => {
+        document.getElementById("tablaViajes").innerHTML +=
+            `<tr>
+              <td scope="row">${viaje.codigo}</td>
+              <td>${viaje.destino}</td>
+              <td>${viaje.precio}</td>
+              <td>${viaje.tipo}</td>
+              <td></td>
+            </tr>`
+    });
+}
+
+function añadirReserva(){
+    
+}

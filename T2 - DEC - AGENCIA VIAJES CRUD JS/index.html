@@ -20,23 +20,23 @@
         <form class="row g-2 justify-content-start mb-4">
 
           <div class="col-auto">
-            <input type="text" class="form-control" placeholder="Nombre">
+            <input type="text" id="txNombre" class="form-control" placeholder="Nombre">
           </div>
 
           <div class="col-auto">
-            <input type="text" class="form-control" placeholder="Apellidos">
+            <input type="text" id="txApellidos" class="form-control" placeholder="Apellidos">
           </div>
 
           <div class="col-auto">
-            <input type="email" class="form-control" placeholder="Correo Electrónico">
+            <input type="email" id="txEmail" class="form-control" placeholder="Correo Electrónico">
           </div>
 
           <div class="col-auto">
-            <input type="tel" class="form-control" placeholder="Teléfono">
+            <input type="tel" id="phoneCliente" class="form-control" placeholder="Teléfono">
           </div>
 
           <div class="col-auto">
-            <button type="submit" class="btn btn-secondary">Añadir Cliente</button>
+            <button type="button" id="btn-AñadirCliente" onclick="añadirCliente()" class="btn btn-secondary">Añadir Cliente</button>
           </div>
 
         </form>
@@ -51,14 +51,7 @@
               <th scope="col">Acciones</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>Luis</td>
-              <td>@mdo</td>
-            </tr>
+          <tbody id="tablaClientes">
           </tbody>
         </table>
       </div>
@@ -71,28 +64,28 @@
         <form class="row g-2 justify-content-start mb-4">
 
           <div class="col-auto">
-            <input type="text" class="form-control" placeholder="Codigo">
+            <input type="text" id="txCodigo" class="form-control" placeholder="Codigo">
           </div>
 
           <div class="col-auto">
-            <input type="text" class="form-control" placeholder="Destino">
+            <input type="text" id="txDestino" class="form-control" placeholder="Destino">
           </div>
 
           <div class="col-auto">
-            <input type="number" class="form-control" placeholder="Precio">
+            <input type="number" id="txPrecio" class="form-control" placeholder="Precio">
           </div>
 
           <div class="col-auto">
-            <select class="form-select" aria-placeholder="Tipo de Viaje">
+            <select class="form-select" id="selTipoViaje" aria-placeholder="Tipo de Viaje">
               <option selected disabled>Tipo de Viaje</option>
-              <option value="1">Vuelo</option>
-              <option value="2">Hotel</option>
-              <option value="3">Paquete</option>
+              <option value="Vuelo">Vuelo</option>
+              <option value="Hotel">Hotel</option>
+              <option value="Paquete">Paquete</option>
             </select>
           </div>
 
           <div class="col-auto">
-            <button type="submit" class="btn btn-secondary">Añadir Viaje</button>
+            <button type="button" id="btn-agregarViaje" onclick="añadirViaje()" class="btn btn-secondary">Añadir Viaje</button>
           </div>
 
         </form>
@@ -107,14 +100,7 @@
               <th scope="col">Acciones</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>Luis</td>
-              <td>@mdo</td>
-            </tr>
+          <tbody id="tablaViajes">
           </tbody>
         </table>
       </div>
