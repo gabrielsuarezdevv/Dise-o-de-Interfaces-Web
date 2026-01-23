@@ -113,25 +113,19 @@
         <form class="row g-2 justify-content-start mb-4">
 
           <div class="col-auto">
-            <select class="form-select" aria-placeholder="Seleccionar Cliente">
+            <select class="form-select" id="selClienteReserva" aria-placeholder="Seleccionar Cliente">
               <option selected disabled>Seleccionar Cliente</option>
-              <option value="1">Negocios</option>
-              <option value="2">Placer</option>
-              <option value="3">Mixto</option>
             </select>
           </div>
 
           <div class="col-auto">
-            <select class="form-select" aria-placeholder="Seleccionar Viaje">
+            <select class="form-select" id="selViajeReserva" aria-placeholder="Seleccionar Viaje">
               <option selected disabled>Seleccionar Viaje</option>
-              <option value="1">Negocios</option>
-              <option value="2">Placer</option>
-              <option value="3">Mixto</option>
             </select>
           </div>
 
           <div class="col-auto">
-            <button type="submit" class="btn btn-secondary">Crear reserva</button>
+            <button type="button" onclick="añadirReserva()" class="btn btn-secondary">Crear reserva</button>
           </div>
 
         </form>
@@ -145,13 +139,7 @@
               <th scope="col">Acciones</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>Luis</td>
-            </tr>
+          <tbody id="tablaReservas">
           </tbody>
         </table>
       </div>

@@ -71,6 +71,10 @@ class Reserva {
     }
 }
 
+// Obtener la fecha del dia actual
+const fechaActual = new Date();
+const fechaLocal = fechaActual.toLocaleDateString('es-ES'); // 'es-ES' para español
+
 arrClientes = [];
 
 function añadirCliente() {
@@ -78,6 +82,7 @@ function añadirCliente() {
     arrClientes.push(cliente);
     console.log(arrClientes);
     renderizarTablaClientes();
+    rellenarSelect("selClienteReserva", "Seleccionar Cliente", arrClientes, "nombre");
 }
 
 function renderizarTablaClientes() {
@@ -104,11 +109,13 @@ function renderizarTablaClientes() {
 
 arrViajes = []
 
-function añadirViaje(){
+function añadirViaje() {
     let viaje = new Viaje(document.getElementById("txCodigo").value, document.getElementById("txDestino").value, document.getElementById("txPrecio").value, document.getElementById("selTipoViaje").value);
     arrViajes.push(viaje);
     console.log(arrViajes);
     renderizarTablaViajes();
+    rellenarSelect("selViajeReserva", "Seleccionar Viaje", arrViajes, "destino");
+
 }
 
 function renderizarTablaViajes() {
@@ -133,6 +140,55 @@ function renderizarTablaViajes() {
     });
 }
 
+function rellenarSelect(idSelect, placeholder, arrSelector, propiedadTexto) {
+    const select = document.getElementById(idSelect);
+
+    // Limpiamos el select
+    while (select.hasChildNodes()) {
+        select.removeChild(select.firstChild);
+    }
+
+    // Con esto se añade el placeholder del select
+    let firstOption = document.createElement("option");
+    firstOption.value = ""; // Dejamos esto vacio para validaciones
+    firstOption.textContent = placeholder;
+    select.appendChild(firstOption);
+
+    // Agregamos clientes o viajes dependiendo de donde se llame la funcion
+    arrSelector.forEach(item => {
+        const option = document.createElement("option");
+        option.value = item[propiedadTexto]; 
+        option.textContent = item[propiedadTexto];
+        select.appendChild(option);
+    });
+}
+
+arrReservas = [];
+
 function añadirReserva(){
-    
+    let reserva = new Reserva(document.getElementById("selClienteReserva").value, document.getElementById("selViajeReserva").value);
+    arrReservas.push(reserva);
+    console.log(arrReservas);
+    renderizarTablaReservas();
+}
+
+function renderizarTablaReservas() {
+
+    // Borramos la tabla
+    const list = document.getElementById("tablaReservas");
+
+    while (list.hasChildNodes()) {
+        list.removeChild(list.firstChild);
+    }
+
+    // Pintamos de nuevo la tabla
+    arrReservas.forEach(reserva => {
+        document.getElementById("tablaReservas").innerHTML +=
+            `<tr>
+              <td scope="row">${reserva.cliente}</td>
+              <td>${reserva.viaje}</td>
+              <td>${fechaLocal}</td>
+              <td></td>
+            </tr>`
+    });
 }
