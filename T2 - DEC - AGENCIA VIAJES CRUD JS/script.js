@@ -101,7 +101,7 @@ function renderizarTablaClientes() {
               <td scope="row">${cliente.nombre}</td>
               <td>${cliente.apellidos}</td>
               <td>${cliente.email}</td>
-              <td>${cliente.phoneCliente}</td>
+              <td>${cliente.telefono}</td>
               <td></td>
             </tr>`
     });
@@ -192,3 +192,26 @@ function renderizarTablaReservas() {
             </tr>`
     });
 }
+
+/* ---- LOCALSTORAGE ----
+       -- Clientes --
+Convierte el array a una cadena JSON */
+const arrClientesStr = JSON.stringify(arrClientes);
+// Guarda la cadena en localStorage
+localStorage.setItem("Clientes", arrClientesStr);
+// Obtener la cadena desde localStorage
+const arrClientesRecuperadoStr = localStorage.getItem("Clientes");
+// Convierte la cadena JSON de nuevo a un array
+const arrClientesRecuperado = JSON.parse(arrClientesRecuperadoStr);
+
+//     -- Viajes -- 
+const arrViajesStr = JSON.stringify(arrViajes);
+localStorage.setItem("Viajes", arrViajesStr);
+const arrViajesRecuperadoStr = localStorage.getItem("Viajes");
+const arrViajesRecuperado = JSON.parse(arrViajesRecuperadoStr);
+
+//   -- Reservas --
+const arrReservasStr = JSON.stringify(arrReservas);
+localStorage.setItem("Reservas", arrReservasStr);
+const arrReservasRecuperadaStr = localStorage.getItem("Reservas");
+const arrReservasRecuperada = JSON.parse(arrReservasRecuperadaStr);
