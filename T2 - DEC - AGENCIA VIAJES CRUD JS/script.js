@@ -75,7 +75,7 @@ class Reserva {
 const fechaActual = new Date();
 const fechaLocal = fechaActual.toLocaleDateString('es-ES'); // 'es-ES' para español
 
-arrClientes = [];
+const arrClientes = [];
 
 function añadirCliente() {
     let cliente = new Cliente(document.getElementById("txNombre").value, document.getElementById("txApellidos").value, document.getElementById("txEmail").value, document.getElementById("phoneCliente").value);
@@ -102,12 +102,12 @@ function renderizarTablaClientes() {
               <td>${cliente.apellidos}</td>
               <td>${cliente.email}</td>
               <td>${cliente.telefono}</td>
-              <td></td>
+              <td><button type="button" id="btn-EliminarCliente" onclick="eliminarCliente()" class="btn btn-secondary">Eliminar</button></td>
             </tr>`
     });
 }
 
-arrViajes = []
+const arrViajes = []
 
 function añadirViaje() {
     let viaje = new Viaje(document.getElementById("txCodigo").value, document.getElementById("txDestino").value, document.getElementById("txPrecio").value, document.getElementById("selTipoViaje").value);
@@ -135,7 +135,7 @@ function renderizarTablaViajes() {
               <td>${viaje.destino}</td>
               <td>${viaje.precio}</td>
               <td>${viaje.tipo}</td>
-              <td></td>
+              <td><button type="button" id="btn-EliminarViaje" onclick="eliminarViaje()" class="btn btn-secondary">Eliminar</button></td>
             </tr>`
     });
 }
@@ -163,7 +163,7 @@ function rellenarSelect(idSelect, placeholder, arrSelector, propiedadTexto) {
     });
 }
 
-arrReservas = [];
+const arrReservas = [];
 
 function añadirReserva(){
     let reserva = new Reserva(document.getElementById("selClienteReserva").value, document.getElementById("selViajeReserva").value);
@@ -188,7 +188,7 @@ function renderizarTablaReservas() {
               <td scope="row">${reserva.cliente}</td>
               <td>${reserva.viaje}</td>
               <td>${fechaLocal}</td>
-              <td></td>
+              <td><button type="button" id="btn-EliminarReserva" onclick="eliminarRegistro()" class="btn btn-secondary">Eliminar</button></td>
             </tr>`
     });
 }
