@@ -1,0 +1,32 @@
+body {
+    margin: 5%;
+}
+
+.wrapper-background {
+    background-color: rgb(162, 162, 162);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10%;
+}
+
+.input-tarea {
+    width: 50%;
+}
+
+.container-filtros {
+    margin-bottom: 2%;
+}
