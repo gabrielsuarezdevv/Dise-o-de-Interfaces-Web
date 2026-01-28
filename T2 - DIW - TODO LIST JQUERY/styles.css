@@ -30,3 +30,13 @@ body {
 .container-filtros {
     margin-bottom: 2%;
 }
+
+.completada {
+    text-decoration: line-through;
+    color: gray;
+    font-style: italic;
+}
+
+.tarea-oculta {
+    display: none;
+}
